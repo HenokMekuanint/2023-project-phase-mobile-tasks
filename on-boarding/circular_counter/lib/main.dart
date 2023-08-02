@@ -52,40 +52,42 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Flutter Circular Counter"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            TweenAnimationBuilder<double>(
-              tween: Tween<double>(begin: _progressValue, end: _progressValue),
-              duration: Duration(milliseconds: 500),
-              builder: (context, value, child) {
-                return CircularPercentIndicator(
-                  radius: AppDimension.width(100, context),
-                  lineWidth: 25.0,
-                  percent: value,
-                  backgroundColor: Colors.blue.shade100,
-                  progressColor: Colors.blue,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  center: Text(
-                    "${(value * 100).toInt()}%",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: AppDimension.height(50, context),
-                      fontWeight: FontWeight.bold,
-                    ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          TweenAnimationBuilder<double>(
+            tween: Tween<double>(begin: _progressValue, end: _progressValue),
+            duration: Duration(milliseconds: 500),
+            builder: (context, value, child) {
+              return CircularPercentIndicator(
+                radius: AppDimension.width(100, context),
+                lineWidth: 25.0,
+                percent: value,
+                backgroundColor: Colors.blue.shade100,
+                progressColor: Colors.blue,
+                circularStrokeCap: CircularStrokeCap.round,
+                center: Text(
+                  "${(value * 100).toInt()}%",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: AppDimension.height(50, context),
+                    fontWeight: FontWeight.bold,
                   ),
-                );
-              },
+                ),
+              );
+            },
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppDimension.width(30, context),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppDimension.width(30, context),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    height: AppDimension.height(40, context),
+                    width: AppDimension.width(120, context),
+                  child: ElevatedButton(
                     onPressed: decrementCounter,
                     child: Text(
                       "Decrement",
@@ -100,14 +102,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  Text(
-                    " ${counter}",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: AppDimension.height(40, context),
-                    ),
+                ),
+                Text(
+                  " ${counter}",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: AppDimension.height(40, context),
                   ),
-                  ElevatedButton(
+                ),
+                Container(
+                  height: AppDimension.height(40, context),
+                    width: AppDimension.width(120, context),
+                  child: ElevatedButton(
                     onPressed: incrementCounter,
                     child: Text(
                       "Increment",
@@ -122,11 +128,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
