@@ -1,16 +1,12 @@
-# todo_app
 
-A new Flutter project.
+![1](https://github.com/HenokMekuanint/2023-project-phase-mobile-tasks/assets/90408697/9b72c38e-0330-4ca6-84bc-f94fb6f17dea)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+![2](https://github.com/HenokMekuanint/2023-project-phase-mobile-tasks/assets/90408697/87b83b22-11dc-48b2-a400-5bbcb5e085b9)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![3](https://github.com/HenokMekuanint/2023-project-phase-mobile-tasks/assets/90408697/9b5facaf-4f85-4322-b342-3a124f840b70)
+
+![4](https://github.com/HenokMekuanint/2023-project-phase-mobile-tasks/assets/90408697/5bd22f7e-6d76-4c75-8599-f1a428980116)
+
