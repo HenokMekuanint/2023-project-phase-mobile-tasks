@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_app/controller/task_controller.dart';
+import 'package:todo_app/task_model/task_manager_model.dart';
+import 'package:todo_app/task_model/task_model.dart';
+import 'package:todo_app/todo_list/todo_list.dart';
 import 'package:todo_app/utils/app_dimension.dart';
 
 class addTask extends StatefulWidget {
@@ -8,6 +12,22 @@ class addTask extends StatefulWidget {
 }
 
 class _addTaskState extends State<addTask> {
+  TaskController taskController = TaskController();
+  void _addTask() {
+    Task newTask = Task(
+      title: taskName,
+      Description: description,
+      dueDate: formatDate(dueDate),
+      status: Status.pending,
+    );
+    taskController.taskManager.addTask(newTask);
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => todoList()));
+
+    // ... rest of the code ...
+  }
+
   String formatDate(DateTime? dateTime) {
     if (dateTime != null) {
       return DateFormat('MMM dd, yyyy hh:mm a').format(dateTime);
@@ -57,11 +77,10 @@ class _addTaskState extends State<addTask> {
               ),
               child: Text(
                 "Create new task",
-                style: TextStyle(fontSize: AppDimension.height(30, context),
-                
-                color: Colors.black,
-                fontFamily: "InterBold"
-                ),
+                style: TextStyle(
+                    fontSize: AppDimension.height(30, context),
+                    color: Colors.black,
+                    fontFamily: "InterBold"),
               ),
             ),
             Divider(
@@ -84,8 +103,8 @@ class _addTaskState extends State<addTask> {
                         Text(
                           "Main Task Name",
                           style: TextStyle(
-                            color: const Color(0xFFEE6F57),
-                            fontFamily: "InterSemiBold",
+                              color: const Color(0xFFEE6F57),
+                              fontFamily: "InterSemiBold",
                               fontSize: AppDimension.height(20, context)),
                         ),
                         SizedBox(
@@ -131,8 +150,8 @@ class _addTaskState extends State<addTask> {
                         Text(
                           "Due Date",
                           style: TextStyle(
-                            color: const Color(0xFFEE6F57),
-                            fontFamily: "InterSemiBold",
+                              color: const Color(0xFFEE6F57),
+                              fontFamily: "InterSemiBold",
                               fontSize: AppDimension.height(20, context)),
                         ),
                         SizedBox(
@@ -189,13 +208,14 @@ class _addTaskState extends State<addTask> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-
-                                  
                                   Text(
-                                    dueDate==null?"Please Enter due date":formatDate(dueDate)
-                                    ,
+                                    dueDate == null
+                                        ? "Please Enter due date"
+                                        : formatDate(dueDate),
                                     style: TextStyle(
-                                      color: dueDate==null?Colors.red:Colors.black,
+                                      color: dueDate == null
+                                          ? Colors.red
+                                          : Colors.black,
                                       fontSize:
                                           AppDimension.height(20, context),
                                     ),
@@ -212,11 +232,9 @@ class _addTaskState extends State<addTask> {
                         SizedBox(height: AppDimension.height(40, context)),
                         Text(
                           "Description",
-                          
                           style: TextStyle(
-                            
-                            color: const Color(0xFFEE6F57),
-                            fontFamily: "InterSemiBold",
+                              color: const Color(0xFFEE6F57),
+                              fontFamily: "InterSemiBold",
                               fontSize: AppDimension.height(20, context)),
                         ),
                         SizedBox(
@@ -272,15 +290,7 @@ class _addTaskState extends State<addTask> {
                                       AppDimension.height(30, context)),
                                 ),
                               ),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  // Form is valid, you can handle the submission here
-                                  // For example, you can save the task to a database
-                                  print('Task Name: $taskName');
-                                  print('Due Date: $dueDate');
-                                  print('Description: $description');
-                                }
-                              },
+                              onPressed: _addTask,
                               child: Text(
                                 'Add Task',
                                 style: TextStyle(

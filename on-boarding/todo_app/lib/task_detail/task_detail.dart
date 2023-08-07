@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/controller/task_controller.dart';
+import 'package:todo_app/task_model/task_model.dart';
 import 'package:todo_app/utils/app_dimension.dart';
 
-class taskDetail extends StatefulWidget {
-  @override
-  State<taskDetail> createState() => _taskDetailState();
-}
+class taskDetail extends StatelessWidget {
+  TaskController taskController = TaskController();
 
-class _taskDetailState extends State<taskDetail> {
+    final int index; // Add the index as a parameter
+
+  taskDetail({required this.index});
+
   @override
   Widget build(BuildContext context) {
+    List<Task> tasks = taskController.taskManager.viewAllTask();
     return SafeArea(
       child: Scaffold(
           body: Column(
@@ -76,7 +80,7 @@ class _taskDetailState extends State<taskDetail> {
                     vertical: AppDimension.height(15, context)
                     ),
                       child: Text(
-                        "UI/UX APP Design",
+                        tasks[index].title,
                       style: TextStyle(
                         fontFamily: "InterRegular",
                       fontSize: AppDimension.height(18, context)
@@ -105,7 +109,9 @@ class _taskDetailState extends State<taskDetail> {
                       bottom: AppDimension.height(30, context)
 
                       ),
-                      child: Text("First I have to animate the logo and prototyping my design. it's very important First I have to animate the logo and prototyping my design. it's very important",
+                      child: Text(
+                        tasks[index].Description
+                        ,
 
 
                       
@@ -136,7 +142,7 @@ class _taskDetailState extends State<taskDetail> {
                     padding:EdgeInsets.symmetric(horizontal: AppDimension.width(10, context),
                       vertical: AppDimension.height(15, context)
                       ) ,
-                    child: Text("April 29,2023",
+                    child: Text(tasks[index].dueDate,
                     style: TextStyle(
                       fontFamily: "InterRegular",
                       fontSize: AppDimension.height(18, context)

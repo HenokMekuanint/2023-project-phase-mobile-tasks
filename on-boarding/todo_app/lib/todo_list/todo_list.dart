@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/add_task/add_task.dart';
+import 'package:todo_app/controller/task_controller.dart';
 import 'package:todo_app/task_detail/task_detail.dart';
+import 'package:todo_app/task_model/task_model.dart';
 import 'package:todo_app/todo_list/list_class.dart';
 import 'package:todo_app/utils/app_dimension.dart';
 
@@ -10,51 +12,14 @@ class todoList extends StatefulWidget {
 }
 
 class _todoListState extends State<todoList> {
-  List<ListItem> objects = [
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "U",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.green),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "U",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.yellow),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "V",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.red),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "F",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.green),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "V",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.yellow),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "V",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.red),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "V",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.green),
-    ListItem(
-        subtitle: "jan 22 2022",
-        leading: "V",
-        title: "UI/UX  APP DESIGN",
-        endcolor: Colors.yellow)
-  ];
+  TaskController taskController = TaskController();
+
 
   @override
   Widget build(BuildContext context) {
+    List<Task> tasks = taskController.taskManager.viewAllTask();
+
+
     return SafeArea(
       child: Scaffold(
           body: Column(
@@ -111,17 +76,22 @@ class _todoListState extends State<todoList> {
           Expanded(
             child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: objects.length,
+                itemCount: tasks.length,
                 itemBuilder: (context, index) {
-                  print(objects[index]);
+                  
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => taskDetail()));
+                              builder: (context) => taskDetail(index: index)));
                     },
-                    child: objects[index],
+                    child: ListItem(
+                      title: tasks[index].title,
+                      description: tasks[index].Description,
+                      dueDate: tasks[index].dueDate,
+                      status: tasks[index].status==Status.pending?Colors.red:Colors.green,
+                    ),
                   );
                 }),
           ),
