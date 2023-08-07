@@ -7,6 +7,7 @@ import 'package:todo_app/todo_list/list_class.dart';
 import 'package:todo_app/utils/app_dimension.dart';
 
 class todoList extends StatefulWidget {
+  
   @override
   State<todoList> createState() => _todoListState();
 }
@@ -14,11 +15,9 @@ class todoList extends StatefulWidget {
 class _todoListState extends State<todoList> {
   TaskController taskController = TaskController();
 
-
   @override
   Widget build(BuildContext context) {
     List<Task> tasks = taskController.taskManager.viewAllTask();
-
 
     return SafeArea(
       child: Scaffold(
@@ -78,7 +77,6 @@ class _todoListState extends State<todoList> {
                 shrinkWrap: true,
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
-                  
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -87,10 +85,12 @@ class _todoListState extends State<todoList> {
                               builder: (context) => taskDetail(index: index)));
                     },
                     child: ListItem(
-                      title: tasks[index].title[tasks.length-1],
+                      title: tasks[index].title[tasks.length - 1],
                       description: tasks[index].Description,
                       dueDate: tasks[index].dueDate,
-                      status: tasks[index].status==Status.pending?Colors.red:Colors.green,
+                      status: tasks[index].status == Status.pending
+                          ? Colors.red
+                          : Colors.green,
                     ),
                   );
                 }),

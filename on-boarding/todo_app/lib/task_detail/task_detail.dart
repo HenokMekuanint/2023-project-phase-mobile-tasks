@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_app/add_task/add_task.dart';
 import 'package:todo_app/controller/task_controller.dart';
+import 'package:todo_app/edit_task/edit_task.dart';
 import 'package:todo_app/task_model/task_manager_model.dart';
 import 'package:todo_app/task_model/task_model.dart';
 import 'package:todo_app/todo_list/todo_list.dart';
@@ -18,8 +20,7 @@ class taskDetail extends StatelessWidget {
     Task currentTask = tasks[index];
 
     void _editTask() {
-
-
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>editTask(index: index,)));
 
     }
 
@@ -49,7 +50,7 @@ class taskDetail extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-IconButton(
+                IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -57,7 +58,6 @@ IconButton(
                   color: Color(0xFFEE6F57),
                   iconSize: AppDimension.height(30, context),
                 ),
-
                 PopupMenuButton(
                   onSelected: (value) {
                     // Handle the selected option here
