@@ -87,7 +87,7 @@ class _todoListState extends State<todoList> {
                               builder: (context) => taskDetail(index: index)));
                     },
                     child: ListItem(
-                      title: tasks[index].title,
+                      title: tasks[index].title[tasks.length-1],
                       description: tasks[index].Description,
                       dueDate: tasks[index].dueDate,
                       status: tasks[index].status==Status.pending?Colors.red:Colors.green,

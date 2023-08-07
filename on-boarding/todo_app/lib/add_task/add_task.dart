@@ -7,6 +7,10 @@ import 'package:todo_app/todo_list/todo_list.dart';
 import 'package:todo_app/utils/app_dimension.dart';
 
 class addTask extends StatefulWidget {
+    final String? curindex;
+
+  addTask({this.curindex});
+
   @override
   State<addTask> createState() => _addTaskState();
 }
