@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/todo_list/todo_list.dart';
-import 'package:todo_app/utils/app_dimension.dart';
+import 'package:todo_app/presentation/todo_list/todo_list.dart';
+import 'package:todo_app/presentation/utils/app_dimension.dart';
 
 class onBoarding extends StatefulWidget {
   @override

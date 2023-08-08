@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/add_task/add_task.dart';
-import 'package:todo_app/controller/task_controller.dart';
-import 'package:todo_app/task_detail/task_detail.dart';
-import 'package:todo_app/task_model/task_model.dart';
-import 'package:todo_app/todo_list/list_class.dart';
-import 'package:todo_app/utils/app_dimension.dart';
+import 'package:todo_app/presentation/add_task/add_task.dart';
+import 'package:todo_app/presentation/controller/task_controller.dart';
+import 'package:todo_app/presentation/task_detail/task_detail.dart';
+import 'package:todo_app/domain/task_model/task_model.dart';
+import 'package:todo_app/presentation/todo_list/list_class.dart';
+import 'package:todo_app/presentation/utils/app_dimension.dart';
 
 class todoList extends StatefulWidget {
   
@@ -51,7 +51,9 @@ class _todoListState extends State<todoList> {
                   icon: Icon(
                     Icons.more_vert,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    
+                  },
                 ),
               ],
             ),

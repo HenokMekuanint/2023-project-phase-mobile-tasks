@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_app/add_task/add_task.dart';
-import 'package:todo_app/controller/task_controller.dart';
-import 'package:todo_app/edit_task/edit_task.dart';
-import 'package:todo_app/task_model/task_manager_model.dart';
-import 'package:todo_app/task_model/task_model.dart';
-import 'package:todo_app/todo_list/todo_list.dart';
-import 'package:todo_app/utils/app_dimension.dart';
+import 'package:todo_app/presentation/add_task/add_task.dart';
+import 'package:todo_app/presentation/controller/task_controller.dart';
+import 'package:todo_app/presentation/edit_task/edit_task.dart';
+import 'package:todo_app/domain/task_model/task_manager_model.dart';
+import 'package:todo_app/domain/task_model/task_model.dart';
+import 'package:todo_app/presentation/todo_list/todo_list.dart';
+import 'package:todo_app/presentation/utils/app_dimension.dart';
 
 class taskDetail extends StatelessWidget {
   final int index;
