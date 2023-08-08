@@ -49,7 +49,7 @@ void main() {
   });
 
 
-testWidgets('ListItem displays correct content', (WidgetTester tester) async {
+testWidgets('ListItem displays correct content', ( tester) async {
     final dueDate = 'Aug 07, 2023 12:16 AM';
     final title = 'Test Task Title';
     final description = 'Test Task Description';
@@ -72,6 +72,27 @@ testWidgets('ListItem displays correct content', (WidgetTester tester) async {
 
 
 
+  });
+
+    testWidgets('addTask Widget Test', ( tester) async {
+    await tester.pumpWidget(MaterialApp(home: addTask()));
+
+    // Find widgets using Key or text
+    final mainTaskNameField = find.byKey(Key('mainTaskNameField'));
+    final dueDateField = find.byKey(Key('dueDateField'));
+    final descriptionField = find.byKey(Key('descriptionField'));
+    final addTaskButton = find.text('Add Task');
+
+    // Enter text into the fields
+    await tester.enterText(mainTaskNameField, 'Sample Task Name');
+    await tester.tap(dueDateField);
+    await tester.enterText(descriptionField, 'Sample Task Description');
+    
+    // // Tap the "Add Task" button
+    await tester.tap(addTaskButton);
+    await tester.pumpAndSettle(); // Wait for animations and navigation
+
+    // // Expect that the app navigates to the todoList screen
   });
 
 }

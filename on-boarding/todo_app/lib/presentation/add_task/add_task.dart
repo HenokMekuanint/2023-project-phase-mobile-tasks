@@ -129,6 +129,7 @@ class _addTaskState extends State<addTask> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             child: TextFormField(
+                              key: Key('mainTaskNameField'),
                               style: TextStyle(
                                   fontSize: AppDimension.height(20, context)),
                               decoration: InputDecoration(
@@ -160,6 +161,7 @@ class _addTaskState extends State<addTask> {
                           height: AppDimension.height(5, context),
                         ),
                         GestureDetector(
+                          key: Key('dueDateField'),
                           onTap: () async {
                             // Show date picker
                             DateTime? pickedDate = await showDatePicker(
@@ -259,6 +261,7 @@ class _addTaskState extends State<addTask> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             child: TextFormField(
+                              key: Key('descriptionField'),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter a Description';
