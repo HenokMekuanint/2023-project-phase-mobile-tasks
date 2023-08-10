@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:todo_app/domain/task_model/task_manager_model.dart';
-import 'package:todo_app/domain/task_model/task_model.dart';
-import 'package:todo_app/presentation/add_task/add_task.dart';
-import 'package:todo_app/presentation/controller/task_controller.dart';
-import 'package:todo_app/presentation/edit_task/edit_task.dart';
-import 'package:todo_app/presentation/onboarding/onboarding.dart';
-import 'package:todo_app/presentation/task_detail/task_detail.dart';
-import 'package:todo_app/presentation/todo_list/list_class.dart';
-import 'package:todo_app/presentation/todo_list/todo_list.dart';
+import 'package:todo_app/features/domain/task_model/task_manager_model.dart';
+import 'package:todo_app/features/domain/entities/task_model.dart';
+import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
+import 'package:todo_app/features/presentation/pages/controller/task_controller.dart';
+import 'package:todo_app/features/presentation/pages/edit_task/edit_task.dart';
+import 'package:todo_app/features/presentation/pages/onboarding/onboarding.dart';
+import 'package:todo_app/features/presentation/pages/task_detail/task_detail.dart';
+import 'package:todo_app/features/presentation/widgets/todo_class/list_class.dart';
+import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (tester) async {

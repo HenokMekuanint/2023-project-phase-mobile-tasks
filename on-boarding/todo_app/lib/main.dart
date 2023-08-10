@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/presentation/onboarding/onboarding.dart';
-import 'package:todo_app/presentation/todo_list/todo_list.dart';
+import 'package:todo_app/features/presentation/pages/onboarding/onboarding.dart';
+import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 
 void main() {
   runApp(const MyApp());
