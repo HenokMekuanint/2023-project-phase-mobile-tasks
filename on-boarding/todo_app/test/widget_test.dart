@@ -16,7 +16,7 @@ void main() {
       id: "1",
       duedate: "Apr /01/20",
       title: "Task 8",
-      Description: "complete the task",
+      description: "complete the task",
       status: false);
   testWidgets('Counter increments smoke test', (tester) async {
     await tester.pumpWidget(MaterialApp(
