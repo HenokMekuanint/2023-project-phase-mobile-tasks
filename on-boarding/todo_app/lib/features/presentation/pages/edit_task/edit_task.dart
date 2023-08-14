@@ -297,14 +297,14 @@ class _editTaskState extends State<editTask> {
                                 ),
                                 onPressed: () {
                                   // Save the updated task details
-                                  taskController.taskManager.editTask(
-                                    widget.index,
-                                    title: taskName,
-                                    description: description,
-                                    dueDate: formatDate(dueDate),
-                                    status: Status.pending,
-                                  );
-                                  Navigator.push(context,MaterialPageRoute(builder: (context)=>todoList()));
+                                  // taskController.taskManager.editTask(
+                                  //   widget.index,
+                                  //   title: taskName,
+                                  //   description: description,
+                                  //   dueDate: formatDate(dueDate),
+                                  //   status: false,
+                                  // );
+                                  // Navigator.push(context,MaterialPageRoute(builder: (context)=>todoList()));
                                 },
                                 child: Text(
                                   'Edit Task',

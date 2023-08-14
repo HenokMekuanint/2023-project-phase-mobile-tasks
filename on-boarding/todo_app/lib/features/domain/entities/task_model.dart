@@ -1,23 +1,30 @@
-class Task {
+import 'package:equatable/equatable.dart';
+
+class Task extends Equatable {
+  final String id;
   String title;
   String Description;
   String dueDate;
-  Status status;
+  bool status;
 
   Task(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.Description,
       required this.dueDate,
       required this.status});
 
-    @override
-  String toString() {
-    return 'Task(title: $title, description: $Description, dueDate: $dueDate, status: $status)';
-  }
+  @override
+  List<Object> get props => [id, title, Description, dueDate, status];
+
+  // @override
+  // String toString() {
+  //   return 'Task(title: $title, description: $Description, dueDate: $dueDate, status: $status)';
+  // }
 }
 
-enum Status { 
-completed,
-pending  
- }
+// enum Status { 
+// completed,
+// pending  
+//  }
 

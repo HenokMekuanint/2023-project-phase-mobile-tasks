@@ -5,7 +5,7 @@ class TaskEntity extends Equatable {
   final String title;
   final String Description;
   final String dueDate;
-  final Status status;
+  final bool status;
 
   const TaskEntity(
       {required this.id,
@@ -22,4 +22,4 @@ class TaskEntity extends Equatable {
   // }
 }
 
-enum Status { completed, pending }
+// enum Status { completed, pending }

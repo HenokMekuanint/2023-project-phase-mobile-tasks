@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:todo_app/features/data/models/todo_model.dart';
 import 'package:todo_app/features/domain/task_model/task_manager_model.dart';
 import 'package:todo_app/features/domain/entities/task_model.dart';
 import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
@@ -11,6 +12,12 @@ import 'package:todo_app/features/presentation/widgets/todo_class/list_class.dar
 import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 
 void main() {
+  TaskModel taskModel = TaskModel(
+      id: "1",
+      duedate: "Apr /01/20",
+      title: "Task 8",
+      Description: "complete the task",
+      status: false);
   testWidgets('Counter increments smoke test', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: onBoarding(),
@@ -42,14 +49,12 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('ToDo List'), findsOneWidget);
-     expect(find.byType(Center), findsNWidgets(4));
-  expect(find.byType(Column), findsOneWidget);
-  // expect(find.byType(Column), findsNWidgets(2));
-
+    expect(find.byType(Center), findsNWidgets(4));
+    expect(find.byType(Column), findsOneWidget);
+    // expect(find.byType(Column), findsNWidgets(2));
   });
 
-
-testWidgets('ListItem displays correct content', ( tester) async {
+  testWidgets('ListItem displays correct content', (tester) async {
     final dueDate = 'Aug 07, 2023 12:16 AM';
     final title = 'Test Task Title';
     final description = 'Test Task Description';
@@ -69,12 +74,9 @@ testWidgets('ListItem displays correct content', ( tester) async {
     expect(find.text(title), findsOneWidget);
     expect(find.text(description), findsOneWidget);
     expect(find.text(dueDate), findsOneWidget);
-
-
-
   });
 
-    testWidgets('addTask Widget Test', ( tester) async {
+  testWidgets('addTask Widget Test', (tester) async {
     await tester.pumpWidget(MaterialApp(home: addTask()));
 
     // Find widgets using Key or text
@@ -87,15 +89,11 @@ testWidgets('ListItem displays correct content', ( tester) async {
     await tester.enterText(mainTaskNameField, 'Sample Task Name');
     await tester.tap(dueDateField);
     await tester.enterText(descriptionField, 'Sample Task Description');
-    
+
     // // Tap the "Add Task" button
     await tester.tap(addTaskButton);
     await tester.pumpAndSettle(); // Wait for animations and navigation
 
     // // Expect that the app navigates to the todoList screen
   });
-
 }
-
-
-

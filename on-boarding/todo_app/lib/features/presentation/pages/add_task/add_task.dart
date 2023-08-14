@@ -7,28 +7,17 @@ import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 import 'package:todo_app/features/presentation/widgets/utils/app_dimension.dart';
 
 class addTask extends StatefulWidget {
-  
   @override
   State<addTask> createState() => _addTaskState();
 }
 
 class _addTaskState extends State<addTask> {
-  TaskController taskController = TaskController();
-  
-  void _addTask() {
-    Task newTask = Task(
-      title: taskName,
-      Description: description,
-      dueDate: formatDate(dueDate),
-      status: Status.pending,
-    );
-    taskController.taskManager.addTask(newTask);
+  final TextEditingController _titleColtroller = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _dueDataController = TextEditingController();
 
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => todoList()));
 
-    // ... rest of the code ...
-  }
+
 
   String formatDate(DateTime? dateTime) {
     if (dateTime != null) {
@@ -129,6 +118,7 @@ class _addTaskState extends State<addTask> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             child: TextFormField(
+                              controller: _titleColtroller,
                               key: Key('mainTaskNameField'),
                               style: TextStyle(
                                   fontSize: AppDimension.height(20, context)),
@@ -261,6 +251,7 @@ class _addTaskState extends State<addTask> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20),
                             child: TextFormField(
+                              controller: _descriptionController,
                               key: Key('descriptionField'),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -275,9 +266,9 @@ class _addTaskState extends State<addTask> {
                               ),
                               maxLines: 3,
                               onChanged: (value) {
-                                setState(() {
-                                  description = value;
-                                });
+                                // setState(() {
+                                //   description = value;
+                                // });
                               },
                             ),
                           ),
@@ -295,7 +286,7 @@ class _addTaskState extends State<addTask> {
                                       AppDimension.height(30, context)),
                                 ),
                               ),
-                              onPressed: _addTask,
+                              onPressed: (){},
                               child: Text(
                                 'Add Task',
                                 style: TextStyle(

@@ -25,7 +25,7 @@ class taskDetail extends StatelessWidget {
     }
 
     void _markAsComplete() {
-      tasks[index].status = Status.completed;
+      tasks[index].status = true;
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => todoList()));
     }

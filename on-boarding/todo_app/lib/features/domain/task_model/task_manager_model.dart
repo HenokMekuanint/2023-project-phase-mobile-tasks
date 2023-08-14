@@ -12,15 +12,15 @@ class TaskManager {
   }
 
   List<Task> viewCompletedTasks() {
-    return _tasks.where((task) => task.status == Status.completed).toList();
+    return _tasks.where((task) => task.status == true).toList();
   }
 
   List<Task> viewPendingTask() {
-    return _tasks.where((task) => task.status == Status.pending).toList();
+    return _tasks.where((task) => task.status == false).toList();
   }
 
   void editTask(int index,
-      {String? title, String? description, String? dueDate, Status? status}) {
+      {String? title, String? description, String? dueDate, bool? status}) {
     if (index >= 0 && index < _tasks.length) {
       Task task = _tasks[index];
       if (title != null) task.title = title;
