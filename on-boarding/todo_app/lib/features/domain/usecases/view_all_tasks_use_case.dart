@@ -5,7 +5,7 @@ import 'package:todo_app/features/domain/repositories/todo_repository.dart';
 import 'package:todo_app/features/domain/usecases/todo_use_case.dart';
 
 class ViewAllTask implements UseCase<List<TaskEntity>, void> {
-  final TodoRepository repository;
+  final TaskRepository repository;
   ViewAllTask({required this.repository});
   @override
   Future<Either<Failure, List<TaskEntity>>> call(void params) async {

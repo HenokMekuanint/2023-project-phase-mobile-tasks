@@ -4,12 +4,12 @@ import 'package:todo_app/core/errors/failure.dart';
 import 'package:todo_app/features/domain/repositories/todo_repository.dart';
 import 'package:todo_app/features/domain/usecases/todo_use_case.dart';
 
-class UpdateTask implements UseCase<TaskEntity,TaskEntity>{
-  final TodoRepository repository;
+class UpdateTask implements UseCase<TaskEntity, TaskEntity> {
+  final TaskRepository repository;
   UpdateTask({required this.repository});
 
   @override
-  Future<Either<Failure,TaskEntity>>call(TaskEntity taskEntity)async{
+  Future<Either<Failure, TaskEntity>> call(TaskEntity taskEntity) async {
     return repository.updateTask(taskEntity);
   }
 }

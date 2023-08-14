@@ -5,7 +5,7 @@ import 'package:todo_app/features/domain/repositories/todo_repository.dart';
 import 'package:todo_app/features/domain/usecases/todo_use_case.dart';
 
 class CreateTask implements UseCase<TaskEntity, TaskEntity> {
-  final TodoRepository repository;
+  final TaskRepository repository;
   CreateTask({required this.repository});
 
   @override

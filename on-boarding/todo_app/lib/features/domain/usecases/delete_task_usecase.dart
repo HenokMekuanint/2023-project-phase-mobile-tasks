@@ -4,7 +4,7 @@ import 'package:todo_app/features/domain/repositories/todo_repository.dart';
 import 'package:todo_app/features/domain/usecases/todo_use_case.dart';
 
 class DeleteTask implements UseCase<void, String> {
-  final TodoRepository repository;
+  final TaskRepository repository;
   DeleteTask({required this.repository});
   @override
   Future<Either<Failure, void>> call(String taskId) async {
