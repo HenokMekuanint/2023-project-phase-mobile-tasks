@@ -4,6 +4,7 @@ import 'package:todo_app/core/errors/exception.dart';
 import 'package:todo_app/core/errors/failure.dart';
 import 'package:todo_app/core/networkInfo/network_info.dart';
 import 'package:todo_app/features/data/data_source/local_data_source.dart';
+import 'package:todo_app/features/data/data_source/remote_data_source.dart';
 import 'package:todo_app/features/domain/repositories/todo_repository.dart';
 
 
@@ -45,7 +46,7 @@ class TaskRepoImpl implements TaskRepository {
     } else {
       // get from local data source
       try {
-        final localTask = await localDataSource.getTask(todoId);
+        final localTask = await localDataSource.getTask(taskId);
         return Right(localTask);
       } on CacheException catch (e) {
         return Left(CacheFailure(message: "Cache Error"));
@@ -90,11 +91,11 @@ class TaskRepoImpl implements TaskRepository {
 
 
     @override
-  Future<Either<Failure, void>> deleteTask(String todoId) async {
+  Future<Either<Failure, void>> deleteTask(String taskId) async {
     if (await networkInfo.isConnected) {
       try {
-        remoteDataSource.deleteTask(todoId);
-        localDataSource.removeTask(todoId);
+        remoteDataSource.deleteTask(taskId);
+        localDataSource.removeTask(taskId);
         return const Right(null);
       } on ServerException catch (e) {
         return Left(ServerFailure(message: "Server Error"));

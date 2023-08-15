@@ -5,5 +5,5 @@ abstract class TaskLocalDataSource {
   Future<List<TaskModel>> getTasks(String key);
   Future<void> cacheTask(String key, TaskModel todomodel);
   Future<void> cacheTasks(String key, List<TaskModel> taskmodel);
-  Future<void> remoteTask(String key);
+  Future<void> removeTask(String key);
 }
