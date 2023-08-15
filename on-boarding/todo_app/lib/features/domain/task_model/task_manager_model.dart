@@ -1,4 +1,4 @@
-import '../entities/task_model.dart';
+import '../entities/task_entity.dart';
 
 class TaskManager {
   late List<Task> _tasks=[];
