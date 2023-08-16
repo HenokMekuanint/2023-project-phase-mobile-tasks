@@ -4,7 +4,7 @@ import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
 import 'package:todo_app/features/presentation/pages/task_detail/task_detail.dart';
 import 'package:todo_app/features/domain/entities/task_entity.dart';
 import 'package:todo_app/features/presentation/widgets/todo_class/list_class.dart';
-import 'package:todo_app/features/presentation/widgets/utils/app_dimension.dart';
+import 'package:todo_app/core/utils/app_dimension.dart';
 
 class todoList extends StatefulWidget {
   

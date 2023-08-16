@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/features/domain/entities/task_entity.dart';
 import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
-import 'package:todo_app/features/presentation/widgets/utils/app_dimension.dart';
+import 'package:todo_app/core/utils/app_dimension.dart';
 
 class editTask extends StatefulWidget {
   final int index; // Add the index as a parameter

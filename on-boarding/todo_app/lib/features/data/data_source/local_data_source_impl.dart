@@ -11,7 +11,6 @@ class TaskLocalDataSourceIml implements TaskLocalDataSource {
   TaskLocalDataSourceIml({required this.sharedPreferences});
   @override
   Future<TaskModel> getTask(String key) {
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
     final jsonString = sharedPreferences.getString(key);
     if (jsonString != null) {
       return Future.value(TaskModel.fromJson(json.decode(jsonString)));

@@ -6,7 +6,7 @@ import 'package:todo_app/features/data/models/todo_model.dart';
 
 import 'dart:io';
 
-import '../../helper/json_reader.dart';
+import '../../helper/fixture/json_reader.dart';
 
 void main() {
   TaskModel taskmodel = const TaskModel(
@@ -21,7 +21,7 @@ void main() {
 
   test("should return valid TodoModel from json", () async {
     final Map<String, dynamic> jsonMap = await jsonDecode(
-        readJson("features/todo/helper/dummy_data/todo_dummy_respose.json"));
+        readJson("features/todo/helper/fixture/todo_dummy_respose.json"));
 
     final result = TaskModel.fromJson(jsonMap);
 
