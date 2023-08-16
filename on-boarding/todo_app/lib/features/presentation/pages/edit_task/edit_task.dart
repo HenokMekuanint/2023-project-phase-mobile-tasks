@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_app/features/presentation/pages/controller/task_controller.dart';
-import 'package:todo_app/features/domain/task_model/task_manager_model.dart';
 import 'package:todo_app/features/domain/entities/task_entity.dart';
 import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 import 'package:todo_app/features/presentation/widgets/utils/app_dimension.dart';
@@ -16,7 +14,6 @@ class editTask extends StatefulWidget {
 }
 
 class _editTaskState extends State<editTask> {
-  TaskController taskController = TaskController();
   Task? task; // Task to edit
 
   String formatDate(DateTime? dateTime) {
@@ -33,7 +30,6 @@ class _editTaskState extends State<editTask> {
   @override
   void initState() {
     super.initState();
-    task = taskController.taskManager.viewAllTask()[widget.index];
     // Initialize the text fields with task data
     taskName = task!.title;
     dueDate = parseDate(task!.dueDate);

@@ -5,11 +5,10 @@ import 'package:todo_app/core/errors/failure.dart';
 import 'package:todo_app/core/networkInfo/network_info.dart';
 import 'package:todo_app/features/data/data_source/local_data_source.dart';
 import 'package:todo_app/features/data/data_source/remote_data_source.dart';
+import 'package:todo_app/features/data/models/todo_model.dart';
 import 'package:todo_app/features/domain/repositories/todo_repository.dart';
 
-
 class TaskRepoImpl implements TaskRepository {
-
   final TaskLocalDataSource localDataSource;
   final TaskRemoteDataSource remoteDataSource;
   final NetworkInfoImpl networkInfo;
@@ -22,7 +21,13 @@ class TaskRepoImpl implements TaskRepository {
   Future<Either<Failure, TaskEntity>> createTask(TaskEntity taskEntity) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteTask = await remoteDataSource.createTask(taskEntity);
+        TaskModel newTask = TaskModel(
+            id: id,
+            duedate: taskEntity.duedate,
+            title: taskEntity.title,
+            description: taskEntity.description,
+            status: taskEntity.status);
+        final remoteTask = await remoteDataSource.createTask(newTask);
         localDataSource.cacheTask(remoteTask.id, remoteTask);
         return Right(remoteTask);
       } on ServerException catch (e) {
@@ -37,7 +42,7 @@ class TaskRepoImpl implements TaskRepository {
   Future<Either<Failure, TaskEntity>> viewTask(String taskId) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteTask = await remoteDataSource.viewTask(taskId);
+        final remoteTask = await remoteDataSource.vieWTask(taskId);
         localDataSource.cacheTask(remoteTask.id, remoteTask);
         return Right(remoteTask);
       } on ServerException catch (e) {
@@ -58,7 +63,7 @@ class TaskRepoImpl implements TaskRepository {
   Future<Either<Failure, List<TaskEntity>>> viewAllTasks() async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteTasks = await remoteDataSource.viewAllTasks();
+        final remoteTasks = await remoteDataSource.viewAllTask();
         localDataSource.cacheTasks("todos", remoteTasks);
         return Right(remoteTasks);
       } on ServerException catch (e) {
@@ -75,10 +80,18 @@ class TaskRepoImpl implements TaskRepository {
   }
 
   @override
-  Future<Either<Failure, TaskEntity>> updateTask(TaskEntity todoEntity) async {
+  Future<Either<Failure, TaskEntity>> updateTask( taskEntity) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteTask = await remoteDataSource.updateTask(todoEntity);
+
+        TaskModel newTask = TaskModel(
+            id: id,
+            duedate: taskEntity.duedate,
+            title: taskEntity.title,
+            description: taskEntity.description,
+            status: taskEntity.status);
+
+        final remoteTask = await remoteDataSource.updateTask(newTask.id,newTask);
         localDataSource.cacheTask(remoteTask.id, remoteTask);
         return Right(remoteTask);
       } on ServerException catch (e) {
@@ -89,8 +102,7 @@ class TaskRepoImpl implements TaskRepository {
     }
   }
 
-
-    @override
+  @override
   Future<Either<Failure, void>> deleteTask(String taskId) async {
     if (await networkInfo.isConnected) {
       try {
@@ -104,10 +116,4 @@ class TaskRepoImpl implements TaskRepository {
       return Left(ConnectionFailure(message: "No Internet Connection"));
     }
   }
-
-
 }
-
-
-
-

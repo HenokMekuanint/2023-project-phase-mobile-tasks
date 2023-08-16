@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:todo_app/features/data/models/todo_model.dart';
-import 'package:todo_app/features/domain/task_model/task_manager_model.dart';
 import 'package:todo_app/features/domain/entities/task_entity.dart';
 import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
-import 'package:todo_app/features/presentation/pages/controller/task_controller.dart';
 import 'package:todo_app/features/presentation/pages/edit_task/edit_task.dart';
 import 'package:todo_app/features/presentation/pages/onboarding/onboarding.dart';
 import 'package:todo_app/features/presentation/pages/task_detail/task_detail.dart';

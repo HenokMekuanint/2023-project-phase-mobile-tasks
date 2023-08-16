@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
-import 'package:todo_app/features/presentation/pages/controller/task_controller.dart';
-import 'package:todo_app/features/presentation/pages/edit_task/edit_task.dart';
-import 'package:todo_app/features/domain/task_model/task_manager_model.dart';
 import 'package:todo_app/features/domain/entities/task_entity.dart';
 import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 import 'package:todo_app/features/presentation/widgets/utils/app_dimension.dart';
 
 class taskDetail extends StatelessWidget {
   final int index;
-  TaskController taskController = TaskController();
 
   taskDetail({required this.index});
 
   @override
   Widget build(BuildContext context) {
-    List<Task> tasks = taskController.taskManager.viewAllTask();
-    Task currentTask = tasks[index];
+    // Task currentTask = tasks[index];
 
     void _editTask() {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>editTask(index: index,)));
+      // Navigator.push(context, MaterialPageRoute(builder: (context)=>editTask()));
 
     }
 
     void _markAsComplete() {
-      tasks[index].status = true;
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => todoList()));
+      // tasks[index].status = true;
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (context) => todoList()));
     }
 
     void _deleteTask() {
-      tasks.removeAt(index);
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => todoList()));
+      // tasks.removeAt(index);
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (context) => todoList()));
     }
 
     String formatDate(DateTime? dateTime) {
@@ -121,7 +116,8 @@ class taskDetail extends StatelessWidget {
                         horizontal: AppDimension.width(10, context),
                         vertical: AppDimension.height(15, context)),
                     child: Text(
-                      currentTask.title,
+                      // currentTask.title,
+                      "dumy text",
                       style: TextStyle(
                           fontFamily: "InterRegular",
                           fontSize: AppDimension.height(18, context)),
@@ -151,7 +147,8 @@ class taskDetail extends StatelessWidget {
                         top: AppDimension.height(15, context),
                         bottom: AppDimension.height(30, context)),
                     child: Text(
-                      currentTask.Description,
+                      // currentTask.Description,
+                      "dummy_desctiption",
                       style: TextStyle(
                           fontFamily: "InterRegular",
                           wordSpacing: 1,
@@ -178,7 +175,8 @@ class taskDetail extends StatelessWidget {
                       horizontal: AppDimension.width(10, context),
                       vertical: AppDimension.height(15, context)),
                   child: Text(
-                    currentTask.dueDate,
+                    // currentTask.dueDate,
+                    "dummy due date",
                     style: TextStyle(
                         fontFamily: "InterRegular",
                         fontSize: AppDimension.height(18, context)),

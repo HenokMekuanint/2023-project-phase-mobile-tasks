@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
-import 'package:todo_app/features/presentation/pages/controller/task_controller.dart';
+// import 'package:todo_app/features/presentation/pages/controller/task_controller.dart';
 import 'package:todo_app/features/presentation/pages/task_detail/task_detail.dart';
 import 'package:todo_app/features/domain/entities/task_entity.dart';
 import 'package:todo_app/features/presentation/widgets/todo_class/list_class.dart';
@@ -13,11 +13,11 @@ class todoList extends StatefulWidget {
 }
 
 class _todoListState extends State<todoList> {
-  TaskController taskController = TaskController();
+  // TaskController taskController = TaskController();
 
   @override
   Widget build(BuildContext context) {
-    List<Task> tasks = taskController.taskManager.viewAllTask();
+    // List<Task> tasks = taskController.taskManager.viewAllTask();
 
     return SafeArea(
       child: Scaffold(
@@ -77,7 +77,7 @@ class _todoListState extends State<todoList> {
           Expanded(
             child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: tasks.length,
+                itemCount: 0,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -87,12 +87,20 @@ class _todoListState extends State<todoList> {
                               builder: (context) => taskDetail(index: index)));
                     },
                     child: ListItem(
-                      title: tasks[index].title[tasks.length - 1],
-                      description: tasks[index].Description,
-                      dueDate: tasks[index].dueDate,
-                      status: tasks[index].status == false
+
+                      title: "dummy title",
+                      description: "dummy description",
+                      dueDate: "dummy due date",
+                      status: true == false
                           ? Colors.red
                           : Colors.green,
+                      
+                      // title: tasks[index].title[tasks.length - 1],
+                      // description: tasks[index].Description,
+                      // dueDate: tasks[index].dueDate,
+                      // status: tasks[index].status == false
+                      //     ? Colors.red
+                      //     : Colors.green,
                     ),
                   );
                 }),
