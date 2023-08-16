@@ -17,14 +17,6 @@ class Task extends Equatable {
   @override
   List<Object> get props => [id, title, Description, dueDate, status];
 
-  // @override
-  // String toString() {
-  //   return 'Task(title: $title, description: $Description, dueDate: $dueDate, status: $status)';
-  // }
 }
 
-// enum Status { 
-// completed,
-// pending  
-//  }
 

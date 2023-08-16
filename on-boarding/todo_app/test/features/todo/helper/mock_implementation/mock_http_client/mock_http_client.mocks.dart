@@ -17,10 +17,6 @@ class _FakeResponse_0 extends _i1.SmartFake implements _i2.Response {
   ) : super(parent, parentInvocation);
 }
 
-  // class MockClient extends _i1.Mock implements _i2.Client {
-//   MockClient() {
-//     _i1.throwOnMissingStub(this);
-//   }
 
 class _FakeStreamedResponse_1 extends _i1.SmartFake
     implements _i2.StreamedResponse {
@@ -251,3 +247,4 @@ class MockClient extends _i1.Mock implements _i2.Client {
         returnValueForMissingStub: null,
       );
 }
+

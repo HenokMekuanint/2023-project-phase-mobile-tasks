@@ -6,7 +6,7 @@ import 'package:todo_app/features/presentation/pages/add_task/add_task.dart';
 import 'package:todo_app/features/presentation/pages/edit_task/edit_task.dart';
 import 'package:todo_app/features/presentation/pages/onboarding/onboarding.dart';
 import 'package:todo_app/features/presentation/pages/task_detail/task_detail.dart';
-import 'package:todo_app/features/presentation/widgets/todo_class/list_class.dart';
+import 'package:todo_app/features/presentation/pages/widgets/todo_class/list_class.dart';
 import 'package:todo_app/features/presentation/pages/todo_list/todo_list.dart';
 
 void main() {
