@@ -5,7 +5,7 @@ class TaskEntity extends Equatable {
   final String title;
   final String description;
   final String duedate;
-  final bool status;
+  final String status;
 
   const TaskEntity(
       {required this.id,
@@ -17,10 +17,4 @@ class TaskEntity extends Equatable {
   @override
   List<Object?> get props => [id, title, description, duedate,status];
 
-  // @override
-  // String toString() {
-  //   return 'Task(title: $title, description: $Description, dueDate: $dueDate, status: $status)';
-  // }
 }
-
-// enum Status { completed, pending }

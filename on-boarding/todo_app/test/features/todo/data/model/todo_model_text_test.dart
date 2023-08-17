@@ -14,7 +14,7 @@ void main() {
       duedate: "Aug 9 2023",
       title: "Task 5",
       description: "complete the task",
-      status: false);
+      status: "false");
   test("should be a subclass of todo entitiy,", () async {
     expect(taskmodel, isA<TaskEntity>());
   });
@@ -35,7 +35,7 @@ void main() {
       'title': 'Task 5',
       'description': 'complete the task',
       'duedate': 'Aug 9 2023',
-      'status': false,
+      'status': "false",
     };
     expect(result, equals(expectedJsonMap));
   });

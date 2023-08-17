@@ -126,7 +126,7 @@ todos being the endpoint and with application/json header''', () {
         id: "1",
         title: "Task 5",
         description: "complete the task",
-        status: false,
+        status: "false",
         duedate: "Aug 09 2023"
         
         );
@@ -189,7 +189,7 @@ todos being the endpoint and with application/json header''', () {
         id: "1",
         title: "Task 5",
         description: "complete the task",
-        status: false,
+        status: "false",
         duedate: "Aug 9 2023");
     final tTodoModelJson = json.decode(
         readJson("features/todo/helper/fixture/todo_dummy_respose.json"));

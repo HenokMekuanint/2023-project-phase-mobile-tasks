@@ -10,7 +10,9 @@ class TaskState extends Equatable {
 
 class EmptyState extends TaskState {}
 
-class LoadingState extends TaskState {}
+class LoadingState extends TaskState {
+  
+}
 
 class LoadedAllTasksState extends TaskState {
   final List<TaskEntity> tasks;
@@ -31,11 +33,3 @@ class ErrorState extends TaskState {
   List<Object> get props => [message];
 }
 
-// class ErrorState extends TodoState {
-//   final String message;
-
-//   const ErrorState({required this.message});
-
-//   @override
-//   List<Object> get props => [message];
-// }

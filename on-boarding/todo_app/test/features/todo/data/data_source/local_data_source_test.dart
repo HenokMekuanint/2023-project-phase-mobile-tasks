@@ -91,7 +91,7 @@ void main() {
       id: "1",
       title: "Test Title 1",
       description: "Test Description 1",
-      status: false, 
+      status: "false", 
       duedate: "Aug 09 2023",
     );
 

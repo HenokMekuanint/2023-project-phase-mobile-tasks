@@ -14,7 +14,7 @@ class editTask extends StatefulWidget {
 }
 
 class _editTaskState extends State<editTask> {
-  Task? task; // Task to edit
+  TaskEntity? task; // Task to edit
 
   String formatDate(DateTime? dateTime) {
     if (dateTime != null) {
@@ -32,8 +32,8 @@ class _editTaskState extends State<editTask> {
     super.initState();
     // Initialize the text fields with task data
     taskName = task!.title;
-    dueDate = parseDate(task!.dueDate);
-    description = task!.Description;
+    dueDate = parseDate(task!.duedate);
+    description = task!.description;
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -209,7 +209,7 @@ class _editTaskState extends State<editTask> {
                                   children: [
                                     Text(
                                       dueDate == null
-                                          ? task!.dueDate
+                                          ? task!.duedate
                                           : formatDate(dueDate),
                                       style: TextStyle(
                                         color: dueDate == null
