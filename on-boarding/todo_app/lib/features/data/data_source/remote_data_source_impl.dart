@@ -17,7 +17,7 @@ class TaskremoteDataSourceImpl implements TaskRemoteDataSource {
       headers: {'Content-Type': 'application/json'},
       body: json.encode(taskModel.toJson()),
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return TaskModel.fromJson(jsonDecode(response.body));
     } else {
       throw ServerException();

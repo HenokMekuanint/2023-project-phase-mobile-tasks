@@ -9,8 +9,6 @@ import 'package:mockito/mockito.dart' as _i1;
 class _FakeResponse_0 extends _i1.SmartFake implements _i2.Response {
 
 
-
-
   _FakeResponse_0(
     Object parent,
     Invocation parentInvocation,
