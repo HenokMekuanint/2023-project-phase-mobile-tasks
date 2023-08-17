@@ -13,11 +13,11 @@ class TaskremoteDataSourceImpl implements TaskRemoteDataSource {
   @override
   Future<TaskModel> createTask(TaskModel taskModel) async {
     final http.Response response = await client.post(
-      Uri.parse('http://test/todos'),
+      Uri.parse('https://test/tasks'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode(taskModel.toJson()),
     );
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return TaskModel.fromJson(jsonDecode(response.body));
     } else {
       throw ServerException();
@@ -40,7 +40,7 @@ class TaskremoteDataSourceImpl implements TaskRemoteDataSource {
   @override
   Future<List<TaskModel>> viewAllTask() async {
     final http.Response response = await client.get(
-      Uri.parse('https://test/tasks'),
+      Uri.parse('https://test/todos'),
       headers: {'Content-Type': 'application/json'},
     );
     if (response.statusCode == 200) {
@@ -55,9 +55,9 @@ class TaskremoteDataSourceImpl implements TaskRemoteDataSource {
     }
   }
 
-  Future<TaskModel> updateTask(String taskid, TaskModel taskModel) async {
+  Future<TaskModel> updateTask(String tTodoId, TaskModel taskModel) async {
     final http.Response response = await client.put(
-        Uri.parse('https://test/tasks/$taskid'),
+        Uri.parse('http://test/todos/$tTodoId'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode(taskModel.toJson()));
 
